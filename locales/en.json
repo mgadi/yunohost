@@ -11,7 +11,7 @@
     "license_undefined" : "undefined",
     "no_appslist_found" : "No app list found",
     "custom_appslist_name_required" : "You must provide a name for your custom app list",
-    "appslist_retrieve_error" : "Unable to retrieve the remote app list",
+    "appslist_retrieve_error" : "Unable to retrieve the remote app list: {error}",
     "appslist_fetched" : "Apps list successfully fetched",
     "appslist_unknown" : "Unknown app list",
     "appslist_removed" : "App list successfully removed",
