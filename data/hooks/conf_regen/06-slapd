@@ -102,6 +102,18 @@ do_post_regen() {
   fi
 
   sudo service slapd force-reload
+
+  # force waiting of slapd service restart otherwise this will break all other
+  # yunohost process that needs the admin user, like the regen_conf hooks that
+  # will occurs after this one
+  # wait a maximum time of 5 minutes
+  # yes, force-reload behave like a restart
+  number_of_wait=0
+  while [[ ! "$(pgrep slapd)" ]] && ((number_of_wait < 60))
+  do
+      sleep 5
+      ((number_of_wait += 1))
+  done
 }
 
 FORCE=${2:-0}
